@@ -1,16 +1,22 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const Globalstyle = createGlobalStyle`
     html{
         box-sizing: border-box;
         font-size: 62.5%;
         min-width: 320px;
+        background-color: blanchedalmond;
     }
     body{
-        margin:0
+        margin:0;
+        margin-top: 10rem;
+        margin-right: 20rem;
+        padding-top:1rem;
     }
 
     div{
+        box-sizing: border-box;
+        margin-right: 2rem;
         
     }
     h1{
@@ -43,4 +49,7 @@ export const Globalstyle = createGlobalStyle`
     *{font-family:'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'}
 
     *{cursor:auto}
+    /* *{opacity:0} */
 `;
+
+// text-align  텍스트의 수평 정렬
