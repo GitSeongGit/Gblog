@@ -20,13 +20,15 @@ const itemColor = {
 const deviceSizes = {
 	mobile: '400px', // 1fr 1
 	tablet: '768px', // 1fr 2
-	laptop: '1440px', // 1fr 3
+	laptop: '1024px', // 1fr 3
 };
 
 const device = {
 	mobile: `screen and (max-width: ${deviceSizes.mobile})`,
-	tablet: `screen and (max-width: ${deviceSizes.tablet})`,
-	laptop: `screen and (min-width : ${deviceSizes.tablet}) and (max-width: ${deviceSizes.laptop})`,
+	tablet: `screen and (min-width: ${deviceSizes.mobile}) and (max-width: ${deviceSizes.tablet})`,
+	laptop: `screen and (min-width : ${'769px'}) and (max-width: ${
+		deviceSizes.laptop
+	})`,
 };
 
 const colors = {
