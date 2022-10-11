@@ -1,7 +1,7 @@
+
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-// import Button from '../components/button';
 import Tag from '../components/tag';
 import { getDatabase, getBlocks, getPage } from '../lib/notion';
 import { Text } from './[id].js';
@@ -10,6 +10,8 @@ import styled from 'styled-components';
 import Header from '../components/header';
 import { H2tag, Ptag } from '../styles/style_basic';
 import theme from '../styles/theme';
+
+
 export const databaseId = process.env.NOTION_DATABASE_ID;
 export default function Home({ posts }) {
 	const tagData = [];

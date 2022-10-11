@@ -1,3 +1,4 @@
+
 import { Fragment } from 'react';
 import Head from 'next/head';
 import { getDatabase, getPage, getBlocks } from '../lib/notion';
@@ -18,6 +19,7 @@ export const Text = ({ text, type }) => {
 			</Span>
 		);
 	});
+
 };
 
 const renderNestedList = (block) => {
@@ -194,6 +196,7 @@ export const getStaticProps = async (context) => {
 	const page = await getPage(id);
 	const blocks = await getBlocks(id);
 
+
 	const childBlocks = await Promise.all(
 		blocks
 			.filter((block) => block.has_children)
@@ -214,6 +217,7 @@ export const getStaticProps = async (context) => {
 		}
 		return block;
 	});
+
 
 	return {
 		props: {
