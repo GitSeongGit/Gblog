@@ -1,36 +1,16 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+// import Button from '../components/button';
+import Tag from '../components/tag';
 import { getDatabase, getBlocks, getPage } from '../lib/notion';
 import { Text } from './[id].js';
 import ProFile from '../components/profile';
 import styled from 'styled-components';
 import Header from '../components/header';
-
+import { H2tag, Ptag } from '../styles/style_basic';
+import theme from '../styles/theme';
 export const databaseId = process.env.NOTION_DATABASE_ID;
-
-const Container = styled.div`
-	display: flex;
-`;
-const ListBox = styled.div``;
-
-const List = styled.li`
-	display: grid;
-	border: 1rem solid rgba(black, 0.1);
-	grid-template-rows: 1fr 1fr;
-	grid-template-columns: 1fr 1fr 1fr;
-	align-content: center;
-`;
-const ListItem = styled.ol`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	background-color: red;
-	margin: 1rem 1rem 1rem 1rem;
-	gap: 1rem;
-`;
-
 export default function Home({ posts }) {
 	const tagData = [];
 	const data = posts.map((post) => {
@@ -42,50 +22,52 @@ export default function Home({ posts }) {
 		});
 	});
 
-	//태그
-	console.log(posts[10].properties['태그'].multi_select[0].name);
-	// console.log(posts[14].cover);
 	return (
 		<>
 			<Header />
 			<ProFile />
-			<ListBox id="aa">
-				<List id="aas">
-					{posts.map((post) => {
-						const image = () => {
-							let data = '';
-							if (post.cover.type === 'file') {
-								data = post.cover.file.url;
-								return data;
-							} else {
-								data = post.cover.external.url;
-								return data;
-							}
-						};
-						const imageData = image();
-						const tag = () => {
-							let data = [];
-							post.properties['태그'].multi_select.map((el) => {
-								data.push(el.name);
-							});
-							return data;
-						};
-						const tagData = tag();
+			{/* <TagBox>
+				{tagData.map((tag, idx) => {
+					return <Tag posts={tag} />;
+				})}
+			</TagBox> */}
 
-						return (
-							<ListItem key={post.id}>
-								{tagData.map((tag) => {
-									return <p>{tag}</p>;
-								})}
+			<Section id="aas">
+				{posts.map((post) => {
+					const image = () => {
+						let data = '';
+						if (post.cover.type === 'file') {
+							data = post.cover.file.url;
+							return data;
+						} else {
+							data = post.cover.external.url;
+							return data;
+						}
+					};
+					const imageData = image();
+					const tag = () => {
+						let data = [];
+						post.properties['태그'].multi_select.map((el) => {
+							data.push(el.name);
+						});
+						return data;
+					};
+					const tagData = tag();
+
+					return (
+						<Link href={`/${post.id}`}>
+							<SectionItem key={post.id}>
+								<H2main>{post.properties['이름'].title[0].plain_text}</H2main>
 								<Image rel="img" src={imageData} width={100} height={100} />
-								<Link href={`/${post.id}`}>
-									<h2>{post.properties['이름'].title[0].plain_text}</h2>
-								</Link>
-							</ListItem>
-						);
-					})}
-				</List>
-			</ListBox>
+								{tagData.map((tag) => {
+									// console.log(tag);
+									return <li>{tag}</li>;
+								})}
+							</SectionItem>
+						</Link>
+					);
+				})}
+			</Section>
 		</>
 	);
 }
@@ -101,3 +83,30 @@ export const getStaticProps = async () => {
 		revalidate: 1,
 	};
 };
+
+const Section = styled.div`
+	display: flex;
+	width: 75%;
+	flex-wrap: wrap;
+	text-align: center;
+`;
+const SectionItem = styled.div`
+	height: 200px;
+	width: 0.5rem;
+	margin: 5px;
+	border: 1px solid;
+
+	@media ${({ theme }) => theme.device.tablet} {
+		flex: calc(50%);
+		background-color: blue;
+	}
+	@media ${({ theme }) => theme.device.laptop} {
+		flex: calc(25%);
+		background-color: red;
+	}
+`;
+const TagBox = styled.div``;
+
+const H2main = styled(H2tag)``;
+
+const Pmain = styled(Ptag)``;

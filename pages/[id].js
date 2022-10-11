@@ -3,29 +3,19 @@ import Head from 'next/head';
 import { getDatabase, getPage, getBlocks } from '../lib/notion';
 import Link from 'next/link';
 import { databaseId } from './index.js';
-
-export const Text = ({ text }) => {
+import ProFile from '../components/profile';
+import Header from '../components/header';
+import styled from 'styled-components';
+export const Text = ({ text, type }) => {
 	if (!text) {
 		return null;
 	}
 	return text.map((value) => {
-		const {
-			annotations: { bold, code, color, italic, strikethrough, underline },
-			text,
-		} = value;
+		const { text } = value;
 		return (
-			<span
-				className={[
-					bold ? styles.bold : '',
-					code ? styles.code : '',
-					italic ? styles.italic : '',
-					strikethrough ? styles.strikethrough : '',
-					underline ? styles.underline : '',
-				].join(' ')}
-				style={color !== 'default' ? { color } : {}}
-			>
+			<Span className={type}>
 				{text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
-			</span>
+			</Span>
 		);
 	});
 };
@@ -46,37 +36,37 @@ const renderNestedList = (block) => {
 const renderBlock = (block) => {
 	const { type, id } = block;
 	const value = block[type];
-
+	console.log(block.type);
 	switch (type) {
 		case 'paragraph':
 			return (
 				<p>
-					<Text text={value.text} />
+					<Text text={value.text} type={type} />
 				</p>
 			);
 		case 'heading_1':
 			return (
 				<h1>
-					<Text text={value.text} />
+					<Text text={value.text} type={type} />
 				</h1>
 			);
 		case 'heading_2':
 			return (
 				<h2>
-					<Text text={value.text} />
+					<Text text={value.text} type={type} />
 				</h2>
 			);
 		case 'heading_3':
 			return (
 				<h3>
-					<Text text={value.text} />
+					<Text text={value.text} type={type} />
 				</h3>
 			);
 		case 'bulleted_list_item':
 		case 'numbered_list_item':
 			return (
 				<li>
-					<Text text={value.text} />
+					<Text text={value.text} type={type} />
 					{!!value.children && renderNestedList(block)}
 				</li>
 			);
@@ -85,7 +75,7 @@ const renderBlock = (block) => {
 				<div>
 					<label htmlFor={id}>
 						<input type="checkbox" id={id} defaultChecked={value.checked} />{' '}
-						<Text text={value.text} />
+						<Text text={value.text} type={type} />
 					</label>
 				</div>
 			);
@@ -93,7 +83,7 @@ const renderBlock = (block) => {
 			return (
 				<details>
 					<summary>
-						<Text text={value.text} />
+						<Text text={value.text} type={type} />
 					</summary>
 					{value.children?.map((block) => (
 						<Fragment key={block.id}>{renderBlock(block)}</Fragment>
@@ -108,18 +98,24 @@ const renderBlock = (block) => {
 			const caption = value.caption ? value.caption[0]?.plain_text : '';
 			return (
 				<figure>
-					<img src={src} alt={caption} />
+					<Img src={src} alt={caption} />
 					{caption && <figcaption>{caption}</figcaption>}
 				</figure>
 			);
 		case 'divider':
 			return <hr key={id} />;
 		case 'quote':
-			return <blockquote key={id}>{value.text[0].plain_text}</blockquote>;
+			return (
+				<Quote className={type} key={id}>
+					{value.text[0].plain_text}
+				</Quote>
+			);
 		case 'code':
 			return (
 				<pre>
-					<code key={id}>{value.text[0].plain_text}</code>
+					<Code key={id} type={type}>
+						{value.text[0].plain_text}
+					</Code>
 				</pre>
 			);
 		case 'file':
@@ -130,7 +126,7 @@ const renderBlock = (block) => {
 			const caption_file = value.caption ? value.caption[0]?.plain_text : '';
 			return (
 				<figure>
-					<div className={styles.file}>
+					<div>
 						📎{' '}
 						<Link href={src_file} passHref>
 							{lastElementInArray.split('?')[0]}
@@ -158,26 +154,30 @@ export default function Post({ page, blocks }) {
 		return <div />;
 	}
 	return (
-		<div>
-			<Head>
-				<title>{page.properties['이름'].title[0].plain_text}</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+		<>
+			<Header />
+			<Container>
+				<ProFile />
+				<Head>
+					<title>{page.properties['이름'].title[0].plain_text}</title>
+					<link rel="icon" href="/favicon.ico" />
+				</Head>
 
-			<article>
-				<h1>
-					<Text text={page.properties['이름'].title} />
-				</h1>
-				<section>
-					{blocks.map((block) => (
-						<Fragment key={block.id}>{renderBlock(block)}</Fragment>
-					))}
-					<Link href="/">
-						<a>← Go home</a>
-					</Link>
-				</section>
-			</article>
-		</div>
+				<article>
+					<h1>
+						<Text text={page.properties['이름'].title} />
+					</h1>
+					<section>
+						{blocks.map((block) => (
+							<Fragment key={block.id}>{renderBlock(block)}</Fragment>
+						))}
+						<Link href="/">
+							<a>← Go home</a>
+						</Link>
+					</section>
+				</article>
+			</Container>
+		</>
 	);
 }
 
@@ -194,8 +194,6 @@ export const getStaticProps = async (context) => {
 	const page = await getPage(id);
 	const blocks = await getBlocks(id);
 
-	// Retrieve block children for nested blocks (one level deep), for example toggle blocks
-	// https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
 	const childBlocks = await Promise.all(
 		blocks
 			.filter((block) => block.has_children)
@@ -225,3 +223,51 @@ export const getStaticProps = async (context) => {
 		revalidate: 1,
 	};
 };
+const Container = styled.div`
+	width: 75%;
+`;
+
+const Quote = styled.blockquote`
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 40px;
+	margin-right: 40px;
+`;
+const Code = styled.code`
+	display: inline-block;
+	border: 0.5px solid;
+	background-color: #eee;
+	border-radius: 3px;
+	font-family: MyFancyCustomFont, monospace;
+	font-size: inherit;
+	padding: 0 3px;
+	word-wrap: break-word;
+`;
+const Img = styled.img`
+	width: 75%;
+`;
+const Span = styled.span.attrs(() => ({ tabIndex: 0 }))`
+	color: blue;
+	font-size: 3vw;
+	font-weight: bold;
+	width: 74%;
+	&.heading_2 {
+		background: orange;
+	}
+	&.heading_3 {
+		background: blue;
+	}
+	&.numbered_list_item {
+		background: red;
+	}
+	&.toggle {
+		background: gray;
+	}
+	&.child_page {
+		background: whitesmoke;
+	}
+	&.code {
+		background: yellow;
+	}
+`;
