@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { getDatabase, getBlocks, getPage } from "../lib/notion";
 import { Text } from "./[id].js";
-import styles from "./index.module.css";
+
 import ProFile from "../components/profile";
 import { Globalstyle } from "../styles/global";
 import styled from "styled-components";
