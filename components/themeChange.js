@@ -1,58 +1,41 @@
-import React, { useState, useContext } from 'react';
-import { ThemeContext } from '../lib/ThemeContext';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useTheme } from '../lib/ThemeContext';
 import theme, { thema1, thema2, thema3, thema4 } from '../styles/theme';
 import { useNotice } from '../lib/ThemeContext';
+import { localSetItem, loclaGetItem } from '../lib/storageDAata';
 export default function ThemeChang() {
 	const [isOpen, setIsOpen] = useState(true);
 
 	const openModalHandler = () => {
 		setIsOpen(!isOpen);
 	};
-	// const onClickThema = (e) => {
-	// 	const { value } = e.target;
 
-	// 	setTheme(() => {
-	// 		if (value === 'thema1') return thema1;
-	// 		else if (value === 'thema2') return thema2;
-	// 		else if (value === 'thema3') return thema3;
-	// 		else if (value === 'thema4') return thema4;
-	// 	});
-	// };
 	const { themes, setThema } = useNotice();
-	console.log(themes);
 	const onClick = (e) => {
 		const { value } = e.target;
-		console.log(value);
 		if (value === 'thema1') {
 			setThema(thema1);
 		} else if (value === 'thema2') {
 			setThema(thema2);
 		} else if (value === 'thema3') {
 			setThema(thema3);
-		} else if (value === 'themea4') {
-			setThema(theme4);
+		} else if (value === 'thema4') {
+			setThema(thema4);
 		}
-		// setThema(() => {
-		// 	if (value === 'thema1') return thema1;
-		// 	else if (value === 'thema2') return thema2;
-		// 	else if (value === 'thema3') return thema3;
-		// 	else if (value === 'thema4') return thema4;
-		// });
 	};
+	useEffect(() => {
+		localSetItem('theme', themes);
+	}, [themes]);
+
 	return (
 		<>
 			<div>
-				<button
-					style={{
-						backgroundColor: themes?.header,
-						height: 36,
-						width: 256,
-					}}
-					onClick={openModalHandler}
-				>
-					{!isOpen ? 'x' : 'thema'}
+				<button onClick={openModalHandler}>
+					{!isOpen ? (
+						<img src="/settings-fill.png" />
+					) : (
+						<img src="/settings-line.png" />
+					)}
 				</button>
 				{!isOpen ? (
 					<div>
