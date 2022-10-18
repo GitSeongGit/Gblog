@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { getDatabase, getPage, getBlocks } from '../lib/notion';
 import Link from 'next/link';
 import { databaseId } from './index.js';
-import ProFile from '../components/profile';
-import Header from '../components/header';
+// import ProFile from '../components/profile';
+// import Header from '../components/header';
 import styled from 'styled-components';
 export const Text = ({ text, type }) => {
 	if (!text) {
@@ -154,8 +154,8 @@ export default function Post({ page, blocks }) {
 	}
 	return (
 		<>
-			<Header />
-			<ProFile />
+			{/* <Header />
+			<ProFile /> */}
 			<Container>
 				<Head>
 					<title>{page.properties['이름'].title[0].plain_text}</title>

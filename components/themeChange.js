@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import theme, { thema1, thema2, thema3, thema4 } from '../styles/theme';
+import { thema1, thema2, thema3, thema4 } from '../styles/theme';
 import { useNotice } from '../lib/ThemeContext';
 import { localSetItem, loclaGetItem } from '../lib/storageDAata';
 export default function ThemeChang() {
@@ -84,5 +84,5 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
-	background-color: ${(props) => props.themes.main};
+	/* background-color: ${(props) => props.themes.main}; */
 `;
