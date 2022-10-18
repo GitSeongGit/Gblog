@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://gblog-1.vercel.app/
+
+# Sitemaps
+Sitemap: https://gblog-1.vercel.app/sitemap.xml

@@ -1,14 +1,13 @@
-
-import { ThemeProvider } from 'styled-components';
 import { Globalstyle } from '../styles/global';
-import theme from '../styles/theme';
+import { ThemeProviders } from '../lib/ThemeContext';
+
 function MyApp({ Component, pageProps }) {
 	return (
 		<>
 			<Globalstyle />
-			<ThemeProvider theme={theme}>
+			<ThemeProviders>
 				<Component {...pageProps} />
-			</ThemeProvider>
+			</ThemeProviders>
 		</>
 	);
 }

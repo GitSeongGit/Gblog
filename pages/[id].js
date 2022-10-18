@@ -1,5 +1,3 @@
-
-import { Fragment } from 'react';
 import Head from 'next/head';
 import { getDatabase, getPage, getBlocks } from '../lib/notion';
 import Link from 'next/link';
@@ -19,7 +17,6 @@ export const Text = ({ text, type }) => {
 			</Span>
 		);
 	});
-
 };
 
 const renderNestedList = (block) => {
@@ -88,7 +85,7 @@ const renderBlock = (block) => {
 						<Text text={value.text} type={type} />
 					</summary>
 					{value.children?.map((block) => (
-						<Fragment key={block.id}>{renderBlock(block)}</Fragment>
+						<div key={block.id}>{renderBlock(block)}</div>
 					))}
 				</details>
 			);
@@ -114,11 +111,11 @@ const renderBlock = (block) => {
 			);
 		case 'code':
 			return (
-				<pre>
+				<Pre>
 					<Code key={id} type={type}>
 						{value.text[0].plain_text}
 					</Code>
-				</pre>
+				</Pre>
 			);
 		case 'file':
 			const src_file =
@@ -140,7 +137,7 @@ const renderBlock = (block) => {
 		case 'bookmark':
 			const href = value.url;
 			return (
-				<a href={href} target="_brank" className={styles.bookmark}>
+				<a href={href} target="_brank">
 					{href}
 				</a>
 			);
@@ -158,26 +155,26 @@ export default function Post({ page, blocks }) {
 	return (
 		<>
 			<Header />
+			<ProFile />
 			<Container>
-				<ProFile />
 				<Head>
 					<title>{page.properties['이름'].title[0].plain_text}</title>
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 
-				<article>
-					<h1>
+				<Article>
+					<H1>
 						<Text text={page.properties['이름'].title} />
-					</h1>
+					</H1>
 					<section>
 						{blocks.map((block) => (
-							<Fragment key={block.id}>{renderBlock(block)}</Fragment>
+							<div key={block.id}>{renderBlock(block)}</div>
 						))}
 						<Link href="/">
 							<a>← Go home</a>
 						</Link>
 					</section>
-				</article>
+				</Article>
 			</Container>
 		</>
 	);
@@ -196,7 +193,6 @@ export const getStaticProps = async (context) => {
 	const page = await getPage(id);
 	const blocks = await getBlocks(id);
 
-
 	const childBlocks = await Promise.all(
 		blocks
 			.filter((block) => block.has_children)
@@ -208,7 +204,6 @@ export const getStaticProps = async (context) => {
 			}),
 	);
 	const blocksWithChildren = blocks.map((block) => {
-		console.log(block);
 		// Add child blocks if the block should contain children but none exists
 		if (block.has_children && !block[block.type].children) {
 			block[block.type]['children'] = childBlocks.find(
@@ -217,7 +212,6 @@ export const getStaticProps = async (context) => {
 		}
 		return block;
 	});
-
 
 	return {
 		props: {
@@ -238,29 +232,42 @@ const Quote = styled.blockquote`
 	margin-left: 40px;
 	margin-right: 40px;
 `;
+const Pre = styled.pre`
+	background-color: rgb(242, 242, 242);
+	padding: 2px 4px;
+	margin: 20px 0;
+	line-height: 2.3;
+	border-radius: 12px;
+	overflow: auto;
+`;
 const Code = styled.code`
-	display: inline-block;
-	border: 0.5px solid;
-	background-color: #eee;
-	border-radius: 3px;
-	font-family: MyFancyCustomFont, monospace;
-	font-size: inherit;
-	padding: 0 3px;
-	word-wrap: break-word;
+	padding: 20px;
+	font-family: monospace;
+	display: flex;
+	flex-wrap: wrap;
 `;
 const Img = styled.img`
 	width: 75%;
 `;
+const Article = styled.article`
+	padding: 0 20px;
+	max-width: 700px;
+	margin: 0 auto;
+	line-height: 1.5;
+`;
+const H1 = styled.h1`
+	font-size: 32px;
+`;
+const Section = styled.section`
+	margin-top: 20rem;
+`;
 const Span = styled.span.attrs(() => ({ tabIndex: 0 }))`
-	color: blue;
 	font-size: 3vw;
 	font-weight: bold;
 	width: 74%;
 	&.heading_2 {
-		background: orange;
 	}
 	&.heading_3 {
-		background: blue;
 	}
 	&.numbered_list_item {
 		background: red;
