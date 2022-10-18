@@ -1,13 +1,13 @@
 export const thema1 = {
-	header: '#373d7b', //헤더 프로필 블록
-	main: '#9695dd', //bakcgrond_color
-	item: '#6667ab', //미정
+	header: '#373d7b',
+	main: '#9695dd',
+	item: '#6667ab',
 };
 export const thema2 = {
 	header: '#656769',
 	main: '#c3c6c8',
 	item: '#939597',
-}; //
+};
 export const thema3 = {
 	header: '#ac9c8e',
 	main: '#fffff1',
@@ -20,7 +20,7 @@ export const thema4 = {
 };
 
 const deviceSizes = {
-	s: '500px',
+	s: '580px',
 	m: '768px',
 	l: '1024px',
 };
