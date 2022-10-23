@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { getDatabase, getPage, getBlocks } from '../lib/notion';
 import Link from 'next/link';
 import { databaseId } from './index.js';
-// import ProFile from '../components/profile';
-// import Header from '../components/header';
+import ProFile from '../components/profile';
+import Header from '../components/header';
 import styled from 'styled-components';
 export const Text = ({ text, type }) => {
 	if (!text) {
@@ -62,6 +62,11 @@ const renderBlock = (block) => {
 				</h3>
 			);
 		case 'bulleted_list_item':
+			return (
+				<li>
+					<Text text={value.text} type={type} />
+				</li>
+			);
 		case 'numbered_list_item':
 			return (
 				<li>
@@ -153,19 +158,19 @@ export default function Post({ page, blocks }) {
 		return <div />;
 	}
 	return (
-		<>
-			{/* <Header />
-			<ProFile /> */}
+		<Container1>
+			<Header />
 			<Container>
+				<ProFile />
 				<Head>
 					<title>{page.properties['이름'].title[0].plain_text}</title>
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 
 				<Article>
-					<H1>
+					<h1>
 						<Text text={page.properties['이름'].title} />
-					</H1>
+					</h1>
 					<section>
 						{blocks.map((block) => (
 							<div key={block.id}>{renderBlock(block)}</div>
@@ -176,7 +181,7 @@ export default function Post({ page, blocks }) {
 					</section>
 				</Article>
 			</Container>
-		</>
+		</Container1>
 	);
 }
 
@@ -221,8 +226,19 @@ export const getStaticProps = async (context) => {
 		revalidate: 1,
 	};
 };
+
+const Container1 = styled.div`
+	background-color: ${({ theme }) => theme.notice.themes.main};
+	/* @media ${({ theme }) => theme.theme.device.tablet} {
+
+	}
+	@media ${({ theme }) => theme.theme.device.laptop} {
+	} */
+`;
+
 const Container = styled.div`
 	width: 75%;
+	height: 100%;
 `;
 
 const Quote = styled.blockquote`
@@ -252,25 +268,27 @@ const Img = styled.img`
 const Article = styled.article`
 	padding: 0 20px;
 	max-width: 700px;
-	margin: 0 auto;
+	margin-top: 10px;
+	margin-left: 15px;
 	line-height: 1.5;
+	border: 4px solid;
 `;
-const H1 = styled.h1`
-	font-size: 32px;
-`;
-const Section = styled.section`
-	margin-top: 20rem;
-`;
-const Span = styled.span.attrs(() => ({ tabIndex: 0 }))`
+
+const Span = styled.span.attrs(() => ({ tabIndex: 1 }))`
 	font-size: 3vw;
 	font-weight: bold;
 	width: 74%;
 	&.heading_2 {
+		font-size: 30px;
 	}
 	&.heading_3 {
+		font-size: 20px;
+	}
+	&.paragraph {
+		font-size: 15px;
 	}
 	&.numbered_list_item {
-		background: red;
+		font-size: 15px;
 	}
 	&.toggle {
 		background: gray;
@@ -280,5 +298,8 @@ const Span = styled.span.attrs(() => ({ tabIndex: 0 }))`
 	}
 	&.code {
 		background: yellow;
+	}
+	&.bulleted_list_item {
+		font-size: 15px;
 	}
 `;

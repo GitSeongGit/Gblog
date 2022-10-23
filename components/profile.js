@@ -5,7 +5,13 @@ export default function ProFile() {
 	return (
 		<ProFileBox>
 			<ProfileImage>
-				<Image rel="img" src="/frog.png" alt="프로필" width={50} height={95} />
+				<Image
+					rel="img"
+					src="/profile.JPG"
+					alt="프로필"
+					width={90}
+					height={95}
+				/>
 			</ProfileImage>
 			<p> web Developer</p>
 			<p> 성장하는 프론트엔드 개발자</p>
