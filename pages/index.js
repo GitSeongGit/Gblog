@@ -1,16 +1,22 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ProFileBox } from '../components/profile';
 import { getDatabase, getBlocks, getPage } from '../lib/notion';
 import ProFile from '../components/profile';
 import styled, { keyframes } from 'styled-components';
 import Header from '../components/header';
+import Footer from '../components/footer';
 
 export const databaseId = process.env.NOTION_DATABASE_ID;
 export default function Home({ posts }) {
 	return (
 		<>
 			<Container>
+				<Head>
+					<title>Gblog</title>
+					<link rel="img" href="/head.png" />
+				</Head>
 				<Header />
 				<ProFile />
 				<Section id="aas">
@@ -55,6 +61,7 @@ export default function Home({ posts }) {
 						);
 					})}
 				</Section>
+				<Footer />
 			</Container>
 		</>
 	);
@@ -87,6 +94,11 @@ const shake = keyframes`{
 
 const Container = styled.div`
 	background-color: ${({ theme }) => theme.notice.themes.main};
+	height: auto;
+	display: flex;
+	align-items: center;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
 `;
 //contant BOX
 const Section = styled.div`
@@ -100,11 +112,14 @@ const Section = styled.div`
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
 		width: 70%;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
 	}
 	@media ${({ theme }) => theme.theme.device.laptop} {
 		width: 70%;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat();
 	}
 `;
 const SectionItem = styled.div`

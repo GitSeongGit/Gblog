@@ -5,6 +5,7 @@ import { databaseId } from './index.js';
 import ProFile from '../components/profile';
 import Header from '../components/header';
 import styled from 'styled-components';
+
 export const Text = ({ text, type }) => {
 	if (!text) {
 		return null;
@@ -35,8 +36,12 @@ const renderNestedList = (block) => {
 const renderBlock = (block) => {
 	const { type, id } = block;
 	const value = block[type];
-	console.log(block.type);
+
+	console.log(value);
+	console.log('-------------------');
 	switch (type) {
+		// case value.lengt === 0:
+		// 	return <br />;
 		case 'paragraph':
 			return (
 				<p>
@@ -161,7 +166,9 @@ export default function Post({ page, blocks }) {
 		<Container1>
 			<Header />
 			<Container>
-				<ProFile />
+				<Test>
+					<ProFile />
+				</Test>
 				<Head>
 					<title>{page.properties['이름'].title[0].plain_text}</title>
 					<link rel="icon" href="/favicon.ico" />
@@ -176,7 +183,7 @@ export default function Post({ page, blocks }) {
 							<div key={block.id}>{renderBlock(block)}</div>
 						))}
 						<Link href="/">
-							<a>← Go home</a>
+							<a>← Home</a>
 						</Link>
 					</section>
 				</Article>
@@ -209,7 +216,6 @@ export const getStaticProps = async (context) => {
 			}),
 	);
 	const blocksWithChildren = blocks.map((block) => {
-		// Add child blocks if the block should contain children but none exists
 		if (block.has_children && !block[block.type].children) {
 			block[block.type]['children'] = childBlocks.find(
 				(x) => x.id === block.id,
@@ -226,14 +232,18 @@ export const getStaticProps = async (context) => {
 		revalidate: 1,
 	};
 };
+const Test = styled.div`
+	@media ${({ theme }) => theme.theme.device.mobile} {
+		display: none;
+	}
+	@media ${({ theme }) => theme.theme.device.tablet} {
+	}
 
+	@media ${({ theme }) => theme.theme.device.laptop} {
+	}
+`;
 const Container1 = styled.div`
 	background-color: ${({ theme }) => theme.notice.themes.main};
-	/* @media ${({ theme }) => theme.theme.device.tablet} {
-
-	}
-	@media ${({ theme }) => theme.theme.device.laptop} {
-	} */
 `;
 
 const Container = styled.div`
@@ -285,7 +295,7 @@ const Span = styled.span.attrs(() => ({ tabIndex: 1 }))`
 		font-size: 20px;
 	}
 	&.paragraph {
-		font-size: 15px;
+		font-size: 14px;
 	}
 	&.numbered_list_item {
 		font-size: 15px;

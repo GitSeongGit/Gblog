@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styled, { keyframes } from 'styled-components';
 
 export default function ProFile() {
@@ -13,9 +14,10 @@ export default function ProFile() {
 					height={95}
 				/>
 			</ProfileImage>
-			<p> web Developer</p>
+			<p> Front-End</p>
 			<p> 성장하는 프론트엔드 개발자</p>
 			<IConBox>
+				{/* <Link> */}
 				<Icon>
 					<Image
 						rel="img"
@@ -25,6 +27,8 @@ export default function ProFile() {
 						height={20}
 					/>
 				</Icon>
+				{/* </Link> */}
+				{/* <Link> */}
 				<Icon>
 					<Image
 						rel="img"
@@ -34,6 +38,8 @@ export default function ProFile() {
 						height={20}
 					/>
 				</Icon>
+				{/* </Link> */}
+				{/* <Link> */}
 				<Icon>
 					<Image
 						rel="img"
@@ -43,32 +49,36 @@ export default function ProFile() {
 						height={20}
 					/>
 				</Icon>
-				<Icon>
-					<Image rel="img" src="/git.png" alt="메신저" width={24} height={24} />
-				</Icon>
+				{/* </Link> */}
+				<Link href="https://github.com/Gitseong96?tab=repositories">
+					<Icon>
+						<Image
+							rel="img"
+							src="/git.png"
+							alt="gitHub"
+							width={24}
+							height={24}
+						/>
+					</Icon>
+				</Link>
 			</IConBox>
 		</ProFileBox>
 	);
 }
 const shake = keyframes`{
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
+0% ,100% {
+	transform : translate3d(-1px ,1px ,0);
+}
+20% , 80% {
+	transform : translate3d(0 ,2px , 0)
+}
 
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
+40% , 60% {
+	transform: translate3d(0,0,2px);
+}
 }`;
 
-const ProFileBox = styled.div`
+export const ProFileBox = styled.div`
 	background-color: ${({ theme }) => theme.notice.themes.header};
 	border: 0.1rem solid;
 	border-color: whitesmoke;
@@ -96,6 +106,7 @@ const ProFileBox = styled.div`
 		width: 23%;
 		margin-right: 19px;
 	}
+
 	@media ${({ theme }) => theme.theme.device.laptop} {
 		position: fixed;
 		top: 9rem;
