@@ -95,10 +95,6 @@ const shake = keyframes`{
 const Container = styled.div`
 	background-color: ${({ theme }) => theme.notice.themes.main};
 	height: auto;
-	display: flex;
-	align-items: center;
-	-webkit-box-pack: justify;
-	justify-content: space-between;
 `;
 //contant BOX
 const Section = styled.div`
