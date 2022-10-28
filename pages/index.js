@@ -12,14 +12,10 @@ export const databaseId = process.env.NOTION_DATABASE_ID;
 export default function Home({ posts }) {
 	return (
 		<>
+			<Header />
 			<Container>
-				<Head>
-					<title>Gblog</title>
-					<link rel="img" href="/head.png" />
-				</Head>
-				<Header />
 				<ProFile />
-				<Section id="aas">
+				<ContentBox>
 					{posts.map((post) => {
 						const image = () => {
 							let data = '';
@@ -41,7 +37,7 @@ export default function Home({ posts }) {
 						};
 						return (
 							<Link href={`/${post.id}`}>
-								<SectionItem key={post.id}>
+								<Contnet key={post.id}>
 									<ImageBox>
 										<Image
 											className="img1"
@@ -52,15 +48,17 @@ export default function Home({ posts }) {
 											height={80}
 										/>
 									</ImageBox>
-									<H2main>{post.properties['이름'].title[0].plain_text}</H2main>
-									<Textbox>
+									<ContentTitle>
+										{post.properties['이름'].title[0].plain_text}
+									</ContentTitle>
+									<ContentText>
 										{post.properties['텍스트'].rich_text[0].plain_text}
-									</Textbox>
-								</SectionItem>
+									</ContentText>
+								</Contnet>
 							</Link>
 						);
 					})}
-				</Section>
+				</ContentBox>
 				<Footer />
 			</Container>
 		</>
@@ -93,60 +91,74 @@ const shake = keyframes`{
 }`;
 
 const Container = styled.div`
+	width: 100%;
 	background-color: ${({ theme }) => theme.notice.themes.main};
-	height: auto;
-`;
-//contant BOX
-const Section = styled.div`
-	display: flex;
-
-	flex-wrap: wrap;
-	text-align: center;
-
 	@media ${({ theme }) => theme.theme.device.mobile} {
-		width: 100%;
+		padding: 5% 15px 0 15px;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
-		width: 70%;
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		padding: 0 3% 0 3%;
+		/* > header {
+			padding: 0 3% 0 3%;
+		} */
 	}
 	@media ${({ theme }) => theme.theme.device.laptop} {
-		width: 70%;
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat();
+		padding: 0 10% 0 10%;
+		/* > header {
+			padding: 0 10% 0 10%;
+		} */
 	}
 `;
-const SectionItem = styled.div`
-	height: 200px;
-
-	margin: 5px;
-	border: 1px solid white;
+const ContentBox = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	width: 70%;
+	@media ${({ theme }) => theme.theme.device.mobile} {
+		width: 100%;
+		flex-direction: column;
+	}
+	@media ${({ theme }) => theme.theme.device.tablet} {
+		width: 66%;
+		padding: 50px 10px 50px 10px;
+	}
+	@media ${({ theme }) => theme.theme.device.laptop} {
+		width: 65%;
+		justify-content: space-around;
+		padding: 50px 10px 50px 10px;
+	}
+`;
+const Contnet = styled.div`
+	border: 1px solid whitesmoke;
 	border-radius: 10px;
 	display: flex;
-	/* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+	flex-wrap: wrap;
+	justify-content: space-between;
 	flex-direction: column;
 	align-items: center;
-	background-color: ${({ theme }) => theme.notice.themes.item};
-	&:hover {
-		animation: ${shake} 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-	}
+
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+		rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 	@media ${({ theme }) => theme.theme.device.mobile} {
-		width: 100%;
-		margin-top: 10px;
+		width: 25rem;
+		height: 15rem;
+		padding: 0 0 0 0;
+		margin: 10px 10% 10px 10%;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
-		flex: calc(25%);
+		width: 14rem;
+		height: 12rem;
+		margin: 0.5rem 10px 0.5rem 10px;
 	}
 	@media ${({ theme }) => theme.theme.device.laptop} {
+		width: 8rem;
+		height: 192px;
+		margin: 0.5rem 10px 0.5rem 10px;
+		padding: 0 0 0 0;
 	}
 `;
-
 const ImageBox = styled.div`
 	display: block;
 	margin-top: 10px;
-	/* border: 1px solid; */
 
 	width: 55%;
 	height: 10%;
@@ -163,8 +175,7 @@ const ImageBox = styled.div`
 	@media ${({ theme }) => theme.theme.device.laptop} {
 	}
 `;
-const H2main = styled.h2`
-	margin-top: 100px;
+const ContentTitle = styled.span`
 	@media ${({ theme }) => theme.theme.device.mobile} {
 		font-size: 30px;
 	}
@@ -175,7 +186,7 @@ const H2main = styled.h2`
 		font-size: 15px;
 	}
 `;
-const Textbox = styled.span`
+const ContentText = styled.span`
 	@media ${({ theme }) => theme.theme.device.mobile} {
 		font-size: 15px;
 	}

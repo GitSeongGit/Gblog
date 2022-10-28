@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://gblog-1.vercel.app</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/b05e5e98-3b0b-43ed-a676-fa0912102c3b</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/f11b7663-5bdf-4b93-a887-f79a7090e28a</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/30ec3252-0cdc-416f-a75c-a023b31e612f</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/e12529b0-7db8-4498-aadc-2fa4eb44cdd5</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/a47b238e-27f5-4d7d-b854-a3e54dfb94cc</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/aaa29206-7068-48f9-a3d9-4d67356ee053</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/c82950a2-3b06-4f2e-a935-df12bcf8864d</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/9264ac14-3c5f-4f2f-9867-cb09539077b5</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/10d6dff2-c977-46aa-8b1f-f4b720e2b0c3</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/d280a80f-a951-49de-87b6-f9b1f4b976a7</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/44d1231d-8189-4dab-8ae8-88f7dedff824</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gblog-1.vercel.app/b475b5e5-420e-462d-a178-e7adc54a4847</loc><lastmod>2022-10-23T20:02:03.484Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/7cd38dd9-6010-4a16-a239-e2a2886ab3f7</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/b05e5e98-3b0b-43ed-a676-fa0912102c3b</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/f11b7663-5bdf-4b93-a887-f79a7090e28a</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/30ec3252-0cdc-416f-a75c-a023b31e612f</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/e12529b0-7db8-4498-aadc-2fa4eb44cdd5</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/a47b238e-27f5-4d7d-b854-a3e54dfb94cc</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/aaa29206-7068-48f9-a3d9-4d67356ee053</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/c82950a2-3b06-4f2e-a935-df12bcf8864d</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/9264ac14-3c5f-4f2f-9867-cb09539077b5</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/10d6dff2-c977-46aa-8b1f-f4b720e2b0c3</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/d280a80f-a951-49de-87b6-f9b1f4b976a7</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/44d1231d-8189-4dab-8ae8-88f7dedff824</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gblog-1.vercel.app/b475b5e5-420e-462d-a178-e7adc54a4847</loc><lastmod>2022-10-28T09:14:24.249Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

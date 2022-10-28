@@ -91,13 +91,9 @@ export const ProFileBox = styled.div`
 		rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
 		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	@media ${({ theme }) => theme.theme.device.mobile} {
-		height: 200px;
-		width: 90%;
-		flex-direction: column;
-		margin-left: 20px;
-		margin-right: 20px;
-		margin-top: 10px;
-		margin-bottom: 10px;
+		width: 25rem;
+		padding: 0 0 0 0;
+		margin: 0 10% 0 10%;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
 		position: fixed;
@@ -108,13 +104,10 @@ export const ProFileBox = styled.div`
 	}
 
 	@media ${({ theme }) => theme.theme.device.laptop} {
-		position: fixed;
-		top: 9rem;
+		position: absolute;
+		top: 111px;
 		right: 0;
-		width: 23%;
-		margin-right: 16px;
-		/* box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-			rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset; */
+		width: 25%;
 	}
 `;
 

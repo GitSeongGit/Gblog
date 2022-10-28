@@ -17,7 +17,7 @@ export default function Header() {
 		</HeadBox>
 	);
 }
-const HeadBox = styled.div`
+const HeadBox = styled.header`
 	justify-content: space-between;
 	background-color: ${({ theme }) => theme.notice.themes.header};
 	position: sticky;
@@ -25,5 +25,14 @@ const HeadBox = styled.div`
 	width: 100%;
 	height: 60px;
 	display: flex;
+	@media ${({ theme }) => theme.theme.device.mobile} {
+		padding: 0 0 0 0;
+	}
+	@media ${({ theme }) => theme.theme.device.tablet} {
+		padding: 0 3% 0 3%;
+	}
+	@media ${({ theme }) => theme.theme.device.laptop} {
+		padding: 0 10% 0 10%;
+	}
 `;
 const ImgBox = styled.span``;

@@ -20,7 +20,7 @@ export const thema4 = {
 };
 
 const deviceSizes = {
-	s: '580px',
+	s: '480px',
 	m: '768px',
 	l: '1024px',
 };

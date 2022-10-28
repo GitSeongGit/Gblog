@@ -8,8 +8,8 @@ export default function Footer() {
 }
 
 const Container = styled.div`
-	/* display: flex; */
-	position: sticky;
+	position: fixed;
+	bottom: 0;
 	background-color: black;
 	top: 100;
 	left: 50%;
