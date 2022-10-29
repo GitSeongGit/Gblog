@@ -104,9 +104,9 @@ export const ProFileBox = styled.div`
 	}
 
 	@media ${({ theme }) => theme.theme.device.laptop} {
-		position: absolute;
+		position: fixed;
 		top: 111px;
-		right: 0;
+		right: 8%;
 		width: 25%;
 	}
 `;

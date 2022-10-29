@@ -27,8 +27,8 @@ const deviceSizes = {
 
 const device = {
 	mobile: `screen and (max-width: ${deviceSizes.s})`,
-	tablet: `screen and (min-width: ${deviceSizes.s}) and (max-width: ${deviceSizes.l})`,
-	laptop: `screen and (min-width : ${deviceSizes.l})`,
+	tablet: `screen and (min-width: ${deviceSizes.s})`,
+	laptop: `screen and (min-width : ${deviceSizes.m})`,
 };
 
 const theme = {

@@ -40,8 +40,6 @@ const renderBlock = (block) => {
 	console.log(value);
 	console.log('-------------------');
 	switch (type) {
-		// case value.lengt === 0:
-		// 	return <br />;
 		case 'paragraph':
 			return (
 				<p>

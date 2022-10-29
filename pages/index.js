@@ -94,19 +94,13 @@ const Container = styled.div`
 	width: 100%;
 	background-color: ${({ theme }) => theme.notice.themes.main};
 	@media ${({ theme }) => theme.theme.device.mobile} {
-		padding: 5% 15px 0 15px;
+		padding: 5% 5% 0 5%;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
 		padding: 0 3% 0 3%;
-		/* > header {
-			padding: 0 3% 0 3%;
-		} */
 	}
 	@media ${({ theme }) => theme.theme.device.laptop} {
 		padding: 0 10% 0 10%;
-		/* > header {
-			padding: 0 10% 0 10%;
-		} */
 	}
 `;
 const ContentBox = styled.div`
@@ -135,7 +129,6 @@ const Contnet = styled.div`
 	justify-content: space-between;
 	flex-direction: column;
 	align-items: center;
-
 	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
 		rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 	@media ${({ theme }) => theme.theme.device.mobile} {
@@ -167,7 +160,7 @@ const ImageBox = styled.div`
 		border-radius: 20px;
 	}
 	@media ${({ theme }) => theme.theme.device.mobile} {
-		width: 25%;
+		width: 35%;
 		height: 10px;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
@@ -175,7 +168,7 @@ const ImageBox = styled.div`
 	@media ${({ theme }) => theme.theme.device.laptop} {
 	}
 `;
-const ContentTitle = styled.span`
+const ContentTitle = styled.h1`
 	@media ${({ theme }) => theme.theme.device.mobile} {
 		font-size: 30px;
 	}
