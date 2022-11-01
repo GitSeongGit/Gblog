@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ProFileBox } from '../components/profile';
 import { getDatabase, getBlocks, getPage } from '../lib/notion';
 import ProFile from '../components/profile';
 import styled, { keyframes } from 'styled-components';
@@ -97,10 +96,10 @@ const Container = styled.div`
 	height: auto;
 	width: 100%;
 	@media ${({ theme }) => theme.theme.device.mobile} {
-		padding: 5% 0 0 0;
+		padding: 5% 0 5% 0;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
-		padding: 5% 0 0 0;
+		padding: 5% 0 5% 0;
 	}
 	@media ${({ theme }) => theme.theme.device.laptop} {
 		padding: 5% 15% 5% 15%;

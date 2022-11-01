@@ -2,24 +2,18 @@ import styled from 'styled-components';
 export default function Footer() {
 	return (
 		<Container>
-			<p>ⓒ 2022 Gisong first Blog</p>
+			<p>ⓒ {new Date().getFullYear()} Gisong first Blog</p>
 		</Container>
 	);
 }
 
-const Container = styled.div`
-	/* display: flex; */
-	position: sticky;
-	background-color: black;
-	top: 100;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	bottom: 1rem;
-	font-family: 'TmoneyRoundWindRegular';
-	font-size: 1rem;
-	color: #707070;
-	justify-content: center;
+const Container = styled.footer`
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	/* left: 50%; */
+	height: 1rem;
 	align-items: center;
-	text-align: center;
-	user-select: none;
+	justify-content: center;
+	background-color: ${({ theme }) => theme.notice.themes.item};
 `;
