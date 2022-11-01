@@ -16,10 +16,10 @@
 
 > - Notion API 기반
 >
-> 1. very peri <img src="https://user-images.githubusercontent.com/102665966/199334484-137ef567-5b3f-480f-b8cc-2b8ed9b2a86a.png" />
-> 2. Ultimate Gray <img src="https://user-images.githubusercontent.com/102665966/199334654-2a6d05a2-ca3f-4a9e-80bb-ad6c58e4c52d.png" />
-> 3. Sand Dollar <img  src="https://user-images.githubusercontent.com/102665966/199334661-ced7f8b0-a5fb-437a-9546-32f744f4e67d.png" />
-> 4. HoneySuckle <img src="https://user-images.githubusercontent.com/102665966/199334668-3275e613-3de5-4b90-8743-e76513ac67b1.png" />
+> 1. very peri <img src="https://user-images.githubusercontent.com/102665966/199334484-137ef567-5b3f-480f-b8cc-2b8ed9b2a86a.png" width="200" />
+> 2. Ultimate Gray <img src="https://user-images.githubusercontent.com/102665966/199334654-2a6d05a2-ca3f-4a9e-80bb-ad6c58e4c52d.png" width="200"/>
+> 3. Sand Dollar <img  src="https://user-images.githubusercontent.com/102665966/199334661-ced7f8b0-a5fb-437a-9546-32f744f4e67d.png" width="200"/>
+> 4. HoneySuckle <img src="https://user-images.githubusercontent.com/102665966/199334668-3275e613-3de5-4b90-8743-e76513ac67b1.png" width="200"/>
 >
 > - 4가지 타입 테마
 
