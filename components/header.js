@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/dist/client/link';
-
 import ThemeChang from './themeChange';
-
 import React from 'react';
 
 export default function Header() {

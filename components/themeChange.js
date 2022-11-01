@@ -30,21 +30,29 @@ export default function ThemeChang() {
 	return (
 		<>
 			<div>
-				<Button onClick={openModalHandler}>{!isOpen ? 'x' : 'Thema'}</Button>
+				<Button onClick={openModalHandler}>{!isOpen ? 'x' : 'x'}</Button>
 				{!isOpen ? (
 					<div>
-						<Thema1Button thema1 onClick={onClick} value="thema1">
-							테마1
-						</Thema1Button>
-						<Thema2Button thema2 onClick={onClick} value="thema2">
-							테마2
-						</Thema2Button>
-						<Thema3Button thema3 onClick={onClick} value="thema3">
-							테마3
-						</Thema3Button>
-						<Thema4Button thema4 onClick={onClick} value="thema4">
-							테마4
-						</Thema4Button>
+						<Thema1Button
+							thema1
+							onClick={onClick}
+							value="thema1"
+						></Thema1Button>
+						<Thema2Button
+							thema2
+							onClick={onClick}
+							value="thema2"
+						></Thema2Button>
+						<Thema3Button
+							thema3
+							onClick={onClick}
+							value="thema3"
+						></Thema3Button>
+						<Thema4Button
+							thema4
+							onClick={onClick}
+							value="thema4"
+						></Thema4Button>
 					</div>
 				) : null}
 			</div>
@@ -79,13 +87,29 @@ const Container = styled.div`
 
 const Button = styled.button`
 	border: 0.5px solid;
-	border-radius: 50%;
+	border-radius: 45%;
 	color: white;
 	background-color: unset;
+	width: 1.5rem;
+	height: 1.5rem;
 `;
 const Thema1Button = styled(Button)`
-	background-color: ${({ theme }) => theme.notice.themes.main};
+	width: 1rem;
+	height: 1rem;
+	background-color: ${thema1.header};
 `;
-const Thema2Button = styled(Button)``;
-const Thema3Button = styled(Button)``;
-const Thema4Button = styled(Button)``;
+const Thema2Button = styled(Button)`
+	width: 1rem;
+	height: 1rem;
+	background-color: ${thema2.header};
+`;
+const Thema3Button = styled(Button)`
+	width: 1rem;
+	height: 1rem;
+	background-color: ${thema3.header};
+`;
+const Thema4Button = styled(Button)`
+	width: 1rem;
+	height: 1rem;
+	background-color: ${thema4.header};
+`;
