@@ -94,10 +94,7 @@ export const ProFileBox = styled.div`
 		height: 200px;
 		width: 90%;
 		flex-direction: column;
-		margin-left: 20px;
-		margin-right: 20px;
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin: 0 3% 4% 3%;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
 		position: fixed;
@@ -110,9 +107,10 @@ export const ProFileBox = styled.div`
 	@media ${({ theme }) => theme.theme.device.laptop} {
 		position: fixed;
 		top: 9rem;
-		right: 0;
+		right: 11%;
 		width: 23%;
 		margin-right: 16px;
+		max-width: 320px;
 		/* box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
 			rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset; */
 	}

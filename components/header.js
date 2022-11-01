@@ -17,13 +17,20 @@ export default function Header() {
 		</HeadBox>
 	);
 }
-const HeadBox = styled.div`
+const HeadBox = styled.header`
 	justify-content: space-between;
 	background-color: ${({ theme }) => theme.notice.themes.header};
-	position: sticky;
+
 	top: 0;
 	width: 100%;
 	height: 60px;
 	display: flex;
+	@media ${({ theme }) => theme.theme.device.mobile} {
+	}
+	@media ${({ theme }) => theme.theme.device.tablet} {
+	}
+	@media ${({ theme }) => theme.theme.device.laptop} {
+		padding: 0 15% 0 15%;
+	}
 `;
 const ImgBox = styled.span``;

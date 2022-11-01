@@ -12,12 +12,12 @@ export const databaseId = process.env.NOTION_DATABASE_ID;
 export default function Home({ posts }) {
 	return (
 		<>
+			<Header />
 			<Container>
 				<Head>
 					<title>Gblog</title>
 					<link rel="img" href="/head.png" />
 				</Head>
-				<Header />
 				<ProFile />
 				<Section id="aas">
 					{posts.map((post) => {
@@ -95,6 +95,16 @@ const shake = keyframes`{
 const Container = styled.div`
 	background-color: ${({ theme }) => theme.notice.themes.main};
 	height: auto;
+	width: 100%;
+	@media ${({ theme }) => theme.theme.device.mobile} {
+		padding: 5% 0 0 0;
+	}
+	@media ${({ theme }) => theme.theme.device.tablet} {
+		padding: 5% 0 0 0;
+	}
+	@media ${({ theme }) => theme.theme.device.laptop} {
+		padding: 5% 15% 5% 15%;
+	}
 `;
 //contant BOX
 const Section = styled.div`
@@ -112,10 +122,9 @@ const Section = styled.div`
 		grid-template-columns: repeat(3, 1fr);
 	}
 	@media ${({ theme }) => theme.theme.device.laptop} {
-		width: 70%;
+		width: 65%;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat();
 	}
 `;
 const SectionItem = styled.div`
@@ -134,12 +143,14 @@ const SectionItem = styled.div`
 	}
 	@media ${({ theme }) => theme.theme.device.mobile} {
 		width: 100%;
-		margin-top: 10px;
+		margin: 10px;
+		max-width: 500px;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
 		flex: calc(25%);
 	}
 	@media ${({ theme }) => theme.theme.device.laptop} {
+		max-width: 200px;
 	}
 `;
 

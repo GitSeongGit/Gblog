@@ -30,27 +30,21 @@ export default function ThemeChang() {
 	return (
 		<>
 			<div>
-				<button onClick={openModalHandler}>
-					{!isOpen ? (
-						<img src="/settings-fill.png" />
-					) : (
-						<img src="/settings-line.png" />
-					)}
-				</button>
+				<Button onClick={openModalHandler}>{!isOpen ? 'x' : 'Thema'}</Button>
 				{!isOpen ? (
 					<div>
-						<button onClick={onClick} value="thema1">
+						<Thema1Button thema1 onClick={onClick} value="thema1">
 							테마1
-						</button>
-						<button onClick={onClick} value="thema2">
+						</Thema1Button>
+						<Thema2Button thema2 onClick={onClick} value="thema2">
 							테마2
-						</button>
-						<button onClick={onClick} value="thema3">
+						</Thema2Button>
+						<Thema3Button thema3 onClick={onClick} value="thema3">
 							테마3
-						</button>
-						<button onClick={onClick} value="thema4">
+						</Thema3Button>
+						<Thema4Button thema4 onClick={onClick} value="thema4">
 							테마4
-						</button>
+						</Thema4Button>
 					</div>
 				) : null}
 			</div>
@@ -84,5 +78,14 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
-	/* background-color: ${(props) => props.themes.main}; */
+	border: 0.5px solid;
+	border-radius: 50%;
+	color: white;
+	background-color: unset;
 `;
+const Thema1Button = styled(Button)`
+	background-color: ${({ theme }) => theme.notice.themes.main};
+`;
+const Thema2Button = styled(Button)``;
+const Thema3Button = styled(Button)``;
+const Thema4Button = styled(Button)``;
