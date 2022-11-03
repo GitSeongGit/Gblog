@@ -60,10 +60,10 @@ export default function ThemeChang() {
 	);
 }
 
-const BackGround = styled.div`
-	background: #00000082;
-	width: 100%;
-`;
+// const BackGround = styled.div`
+// 	background: #00000082;
+// 	width: 100%;
+// `;
 
 // const Container = styled.div`
 // 	display: flex;

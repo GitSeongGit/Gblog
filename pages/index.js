@@ -10,14 +10,13 @@ import Footer from '../components/footer';
 export const databaseId = process.env.NOTION_DATABASE_ID;
 export default function Home({ posts }) {
 	return (
-		<>
+		<Container>
 			<Header />
-			<Container>
+			<MainContainer>
 				<Head>
 					<title>Gblog</title>
-					<link rel="img" href="/head.png" />
+					<link rel="icon" href="/블로그-로고.ico" />
 				</Head>
-				<ProFile />
 				<Section id="aas">
 					{posts.map((post) => {
 						const image = () => {
@@ -60,9 +59,10 @@ export default function Home({ posts }) {
 						);
 					})}
 				</Section>
-				<Footer />
-			</Container>
-		</>
+				<ProFile />
+			</MainContainer>
+			<Footer />
+		</Container>
 	);
 }
 
@@ -90,30 +90,40 @@ const shake = keyframes`{
 }
 
 }`;
-
 const Container = styled.div`
 	background-color: ${({ theme }) => theme.notice.themes.main};
+`;
+const MainContainer = styled.div`
+	background-color: ${({ theme }) => theme.notice.themes.main};
 	height: auto;
-	width: 100%;
+	max-width: 1024px;
+	min-width: 650px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
 	@media ${({ theme }) => theme.theme.device.mobile} {
 		padding: 5% 0 5% 0;
+		flex-wrap: wrap;
+		flex-direction: column-reverse;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
-		padding: 5% 0 5% 0;
 	}
 	@media ${({ theme }) => theme.theme.device.laptop} {
 		padding: 5% 15% 5% 15%;
 	}
 `;
-//contant BOX
+
 const Section = styled.div`
 	display: flex;
-
 	flex-wrap: wrap;
 	text-align: center;
 
 	@media ${({ theme }) => theme.theme.device.mobile} {
 		width: 100%;
+		margin: 0 7% 0 7%;
+		flex-direction: column;
+		max-width: 650px;
+		margin: 0 1rem 0 1rem;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
 		width: 70%;
@@ -121,19 +131,18 @@ const Section = styled.div`
 		grid-template-columns: repeat(3, 1fr);
 	}
 	@media ${({ theme }) => theme.theme.device.laptop} {
-		width: 65%;
+		width: 75%;
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(3, 1fr);
+		margin: 5% 0 5% 0;
 	}
 `;
 const SectionItem = styled.div`
 	height: 200px;
-
 	margin: 5px;
 	border: 1px solid white;
 	border-radius: 10px;
 	display: flex;
-	/* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 	flex-direction: column;
 	align-items: center;
 	background-color: ${({ theme }) => theme.notice.themes.item};
@@ -146,17 +155,15 @@ const SectionItem = styled.div`
 		max-width: 500px;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
-		flex: calc(25%);
 	}
 	@media ${({ theme }) => theme.theme.device.laptop} {
-		max-width: 200px;
+		max-width: 300px;
 	}
 `;
 
 const ImageBox = styled.div`
 	display: block;
 	margin-top: 10px;
-	/* border: 1px solid; */
 
 	width: 55%;
 	height: 10%;

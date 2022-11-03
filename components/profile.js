@@ -50,8 +50,12 @@ export default function ProFile() {
 					/>
 				</Icon>
 				{/* </Link> */}
-				<Link href="https://github.com/Gitseong96?tab=repositories">
-					<Icon>
+
+				<Icon>
+					<a
+						href="https://github.com/Gitseong96?tab=repositories"
+						target="_blank"
+					>
 						<Image
 							rel="img"
 							src="/git.png"
@@ -59,8 +63,8 @@ export default function ProFile() {
 							width={24}
 							height={24}
 						/>
-					</Icon>
-				</Link>
+					</a>
+				</Icon>
 			</IConBox>
 		</ProFileBox>
 	);
@@ -78,7 +82,7 @@ const shake = keyframes`{
 }
 }`;
 
-export const ProFileBox = styled.div`
+const ProFileBox = styled.div`
 	background-color: ${({ theme }) => theme.notice.themes.header};
 	border: 0.1rem solid;
 	border-color: whitesmoke;
@@ -93,24 +97,25 @@ export const ProFileBox = styled.div`
 	@media ${({ theme }) => theme.theme.device.mobile} {
 		height: 200px;
 		width: 90%;
-		flex-direction: column;
-		margin: 0 3% 4% 3%;
+
+		margin: 0 5% 0 5%;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
-		position: fixed;
+		position: sticky;
 		top: 9rem;
 		right: 0;
-		width: 23%;
-		margin-right: 19px;
+		width: 30%;
+		/* margin-right: 19px; */
+		margin: 5% 1rem 0 1rem;
 	}
 
 	@media ${({ theme }) => theme.theme.device.laptop} {
-		position: fixed;
+		position: sticky;
 		top: 9rem;
-		right: 11%;
+		right: 2%;
 		width: 23%;
-		margin-right: 16px;
-		max-width: 320px;
+		margin: 5% 1rem 0 1rem;
+		max-width: 380px;
 		/* box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
 			rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset; */
 	}

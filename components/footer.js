@@ -8,12 +8,19 @@ export default function Footer() {
 }
 
 const Container = styled.footer`
-	position: fixed;
-	width: 100%;
 	bottom: 0;
-	/* left: 50%; */
 	height: 1rem;
-	align-items: center;
-	justify-content: center;
-	background-color: ${({ theme }) => theme.notice.themes.item};
+	text-align: center;
+	max-width: 850px;
+	border-top: solid 1px;
+	padding-top: 15px;
+	/* margin: 0 5% 0 5%; */
+	@media ${({ theme }) => theme.theme.device.mobile} {
+	}
+	@media ${({ theme }) => theme.theme.device.tablet} {
+	}
+	@media ${({ theme }) => theme.theme.device.laptop} {
+		/* padding: 0 15% 0 15%; */
+		margin: 0 5% 0 15%;
+	}
 `;

@@ -5,7 +5,7 @@ import { databaseId } from './index.js';
 import ProFile from '../components/profile';
 import Header from '../components/header';
 import styled from 'styled-components';
-
+import Footer from '../components/footer';
 export const Text = ({ text, type }) => {
 	if (!text) {
 		return null;
@@ -166,9 +166,6 @@ export default function Post({ page, blocks }) {
 		<Container1>
 			<Header />
 			<Container>
-				<Test>
-					<ProFile />
-				</Test>
 				<Head>
 					<title>{page.properties['이름'].title[0].plain_text}</title>
 					<link rel="icon" href="/favicon.ico" />
@@ -188,6 +185,7 @@ export default function Post({ page, blocks }) {
 					</section>
 				</Article>
 			</Container>
+			<Footer />
 		</Container1>
 	);
 }
@@ -232,23 +230,25 @@ export const getStaticProps = async (context) => {
 		revalidate: 1,
 	};
 };
-const Test = styled.div`
-	@media ${({ theme }) => theme.theme.device.mobile} {
-		display: none;
-	}
-	@media ${({ theme }) => theme.theme.device.tablet} {
-	}
 
-	@media ${({ theme }) => theme.theme.device.laptop} {
-	}
-`;
 const Container1 = styled.div`
 	background-color: ${({ theme }) => theme.notice.themes.main};
+	/* max-width: 1024px; */
 `;
 
 const Container = styled.div`
 	width: 75%;
 	height: 100%;
+	@media ${({ theme }) => theme.theme.device.mobile} {
+		padding: 5% 0 5% 0;
+		flex-wrap: wrap;
+		flex-direction: column-reverse;
+	}
+	@media ${({ theme }) => theme.theme.device.tablet} {
+	}
+	@media ${({ theme }) => theme.theme.device.laptop} {
+		padding: 5% 15% 5% 15%;
+	}
 `;
 
 const Quote = styled.blockquote`
