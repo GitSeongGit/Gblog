@@ -96,8 +96,7 @@ const ProFileBox = styled.div`
 		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	@media ${({ theme }) => theme.theme.device.mobile} {
 		height: 200px;
-		width: 90%;
-
+		width: 75%;
 		margin: 0 5% 0 5%;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {

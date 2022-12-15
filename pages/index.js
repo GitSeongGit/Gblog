@@ -9,6 +9,7 @@ import Footer from '../components/footer';
 
 export const databaseId = process.env.NOTION_DATABASE_ID;
 export default function Home({ posts }) {
+
 	return (
 		<Container>
 			<Header />
@@ -92,6 +93,7 @@ const shake = keyframes`{
 }`;
 const Container = styled.div`
 	background-color: ${({ theme }) => theme.notice.themes.main};
+	
 `;
 const MainContainer = styled.div`
 	background-color: ${({ theme }) => theme.notice.themes.main};
