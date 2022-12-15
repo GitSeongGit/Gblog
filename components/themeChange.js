@@ -30,27 +30,29 @@ export default function ThemeChang() {
 	return (
 		<>
 			<div>
-				<button onClick={openModalHandler}>
-					{!isOpen ? (
-						<img src="/settings-fill.png" />
-					) : (
-						<img src="/settings-line.png" />
-					)}
-				</button>
+				<Button onClick={openModalHandler}>{!isOpen ? 'x' : 'x'}</Button>
 				{!isOpen ? (
 					<div>
-						<button onClick={onClick} value="thema1">
-							테마1
-						</button>
-						<button onClick={onClick} value="thema2">
-							테마2
-						</button>
-						<button onClick={onClick} value="thema3">
-							테마3
-						</button>
-						<button onClick={onClick} value="thema4">
-							테마4
-						</button>
+						<Thema1Button
+							thema1
+							onClick={onClick}
+							value="thema1"
+						></Thema1Button>
+						<Thema2Button
+							thema2
+							onClick={onClick}
+							value="thema2"
+						></Thema2Button>
+						<Thema3Button
+							thema3
+							onClick={onClick}
+							value="thema3"
+						></Thema3Button>
+						<Thema4Button
+							thema4
+							onClick={onClick}
+							value="thema4"
+						></Thema4Button>
 					</div>
 				) : null}
 			</div>
@@ -58,31 +60,56 @@ export default function ThemeChang() {
 	);
 }
 
-const BackGround = styled.div`
-	background: #00000082;
-	width: 100%;
-`;
+// const BackGround = styled.div`
+// 	background: #00000082;
+// 	width: 100%;
+// `;
 
-const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 30rem;
-	height: 30rem;
-	background: whitesmoke;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	border-bottom: 0.1rem, #494949b6, solid;
-	border-radius: 3rem;
-	justify-content: center;
-	align-items: center;
-	z-index: 999;
-`;
+// const Container = styled.div`
+// 	display: flex;
+// 	flex-direction: column;
+// 	position: fixed;
+// 	top: 50%;
+// 	left: 50%;
+// 	transform: translate(-50%, -50%);
+// 	width: 30rem;
+// 	height: 30rem;
+// 	background: whitesmoke;
+// 	border-top: none;
+// 	border-left: none;
+// 	border-right: none;
+// 	border-bottom: 0.1rem, #494949b6, solid;
+// 	border-radius: 3rem;
+// 	justify-content: center;
+// 	align-items: center;
+// 	z-index: 999;
+// `;
 
 const Button = styled.button`
-	/* background-color: ${(props) => props.themes.main}; */
+	border: 0.5px solid;
+	border-radius: 45%;
+	color: white;
+	background-color: unset;
+	width: 1.5rem;
+	height: 1.5rem;
+`;
+const Thema1Button = styled(Button)`
+	width: 1rem;
+	height: 1rem;
+	background-color: ${thema1.header};
+`;
+const Thema2Button = styled(Button)`
+	width: 1rem;
+	height: 1rem;
+	background-color: ${thema2.header};
+`;
+const Thema3Button = styled(Button)`
+	width: 1rem;
+	height: 1rem;
+	background-color: ${thema3.header};
+`;
+const Thema4Button = styled(Button)`
+	width: 1rem;
+	height: 1rem;
+	background-color: ${thema4.header};
 `;

@@ -1,15 +1,23 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styled, { keyframes } from 'styled-components';
 
 export default function ProFile() {
 	return (
 		<ProFileBox>
 			<ProfileImage>
-				<Image rel="img" src="/frog.png" alt="프로필" width={50} height={95} />
+				<Image
+					rel="img"
+					src="/profile.JPG"
+					alt="프로필"
+					width={90}
+					height={95}
+				/>
 			</ProfileImage>
-			<p> web Developer</p>
+			<p> Front-End</p>
 			<p> 성장하는 프론트엔드 개발자</p>
 			<IConBox>
+				{/* <Link> */}
 				<Icon>
 					<Image
 						rel="img"
@@ -19,6 +27,8 @@ export default function ProFile() {
 						height={20}
 					/>
 				</Icon>
+				{/* </Link> */}
+				{/* <Link> */}
 				<Icon>
 					<Image
 						rel="img"
@@ -28,6 +38,8 @@ export default function ProFile() {
 						height={20}
 					/>
 				</Icon>
+				{/* </Link> */}
+				{/* <Link> */}
 				<Icon>
 					<Image
 						rel="img"
@@ -37,29 +49,37 @@ export default function ProFile() {
 						height={20}
 					/>
 				</Icon>
+				{/* </Link> */}
+
 				<Icon>
-					<Image rel="img" src="/git.png" alt="메신저" width={24} height={24} />
+					<a
+						href="https://github.com/Gitseong96?tab=repositories"
+						target="_blank"
+					>
+						<Image
+							rel="img"
+							src="/git.png"
+							alt="gitHub"
+							width={24}
+							height={24}
+						/>
+					</a>
 				</Icon>
 			</IConBox>
 		</ProFileBox>
 	);
 }
 const shake = keyframes`{
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
+0% ,100% {
+	transform : translate3d(-1px ,1px ,0);
+}
+20% , 80% {
+	transform : translate3d(0 ,2px , 0)
+}
 
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
+40% , 60% {
+	transform: translate3d(0,0,2px);
+}
 }`;
 
 const ProFileBox = styled.div`
@@ -76,26 +96,25 @@ const ProFileBox = styled.div`
 		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	@media ${({ theme }) => theme.theme.device.mobile} {
 		height: 200px;
-		width: 90%;
-		flex-direction: column;
-		margin-left: 20px;
-		margin-right: 20px;
-		margin-top: 10px;
-		margin-bottom: 10px;
+		width: 75%;
+		margin: 0 5% 0 5%;
 	}
 	@media ${({ theme }) => theme.theme.device.tablet} {
-		position: fixed;
+		position: sticky;
 		top: 9rem;
 		right: 0;
-		width: 23%;
-		margin-right: 19px;
+		width: 30%;
+		/* margin-right: 19px; */
+		margin: 5% 1rem 0 1rem;
 	}
+
 	@media ${({ theme }) => theme.theme.device.laptop} {
-		position: fixed;
+		position: sticky;
 		top: 9rem;
-		right: 0;
+		right: 2%;
 		width: 23%;
-		margin-right: 16px;
+		margin: 5% 1rem 0 1rem;
+		max-width: 380px;
 		/* box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
 			rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset; */
 	}
